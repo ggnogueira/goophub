@@ -19,9 +19,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTabsModule } from '@angular/material/tabs';
+
+import { MaterialFileInputModule } from 'ngx-material-file-input';
+
 import { SecureComponent } from './main/secure/secure.component';
 import { RegisterComponent } from './main/register/register.component';
 import { NotFoundComponent } from './main/not-found/not-found.component';
+import { HeaderComponent } from './main/header/header.component';
+import { SearchComponent } from './main/search/search.component';
+import { AdvancedSearchComponent } from './main/advanced-search/advanced-search.component';
+import { UploadComponent } from './main/upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +40,11 @@ import { NotFoundComponent } from './main/not-found/not-found.component';
     ProfileComponent,
     SecureComponent,
     RegisterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HeaderComponent,
+    SearchComponent,
+    AdvancedSearchComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +61,11 @@ import { NotFoundComponent } from './main/not-found/not-found.component';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatTabsModule,
+    MaterialFileInputModule
   ],
   providers: [
     {
