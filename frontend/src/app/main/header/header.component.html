@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <span>
+        <!--<img src="assets/img/angular_whiteTransparent.svg" class="angular-logo">-->
+        GoopHub
+    </span>
+    <span class="fill-remaining-space"></span>
+    <button mat-button routerLink="search">Search</button>
+    <button mat-button routerLink="upload">Upload</button>
+    <button mat-button routerLink="profile">Profile</button>
+    <button mat-button routerLink="login" *ngIf="!isLoggedIn">Login</button>
+    <button mat-button (click)="onLogout()" *ngIf="isLoggedIn">Logout</button>
+</mat-toolbar>

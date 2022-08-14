@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { TokenService } from './token.service';
 
@@ -20,6 +20,11 @@ const HTTP_OPTIONS = {
 export class AuthService {
 
   redirectUrl = '';
+  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  get isLoggedIn(): Observable<boolean> {
+    return this.loggedIn.asObservable();
+  }
 
   private static handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
@@ -51,6 +56,7 @@ export class AuthService {
       .pipe(
         tap(res => {
           console.log(res);
+          this.loggedIn.next(true);
           this.tokenService.saveToken(res.access_token);
           this.tokenService.saveRefreshToken(res.refresh_token);
         }),
@@ -75,6 +81,7 @@ export class AuthService {
   }
 
   logout(): void {
+    this.loggedIn.next(false);
     this.tokenService.removeToken();
     this.tokenService.removeRefreshToken();
   }
