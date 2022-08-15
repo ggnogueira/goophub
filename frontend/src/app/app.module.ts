@@ -22,6 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 
@@ -65,6 +66,7 @@ import { UploadComponent } from './main/upload/upload.component';
     MatToolbarModule,
     MatGridListModule,
     MatTabsModule,
+    MatDividerModule,
     MaterialFileInputModule
   ],
   providers: [

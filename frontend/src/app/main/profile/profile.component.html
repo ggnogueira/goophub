@@ -1,46 +1,72 @@
-<mat-grid-list cols="2">
-  <mat-grid-tile>
+<mat-grid-list cols="6" rowHeight="800px">
+  <mat-grid-tile [colspan]="2">
     <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      <mat-card-header class="profile">
+        <img mat-card-avatar [src]="this.profileInfo.avatar">
       </mat-card-header>
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content>
+      <mat-card-content >
+        <div class="mat-card-fullname">
+          {{ this.profileInfo.name }}
+        </div>
         <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
         </p>
+        <div class="mat-card-username">
+          {{ this.profileInfo.username }}
+        </div>
+        <button class="mat-card-button" mat-raised-button>Edit Profile</button>
+        <div class="mat-card-follow">
+          <button mat-flat-button>
+            <mat-icon fontIcon="people"></mat-icon>
+            {{ this.profileInfo.followers }} followers
+          </button>
+          ·
+          <button mat-flat-button>
+            {{ this.profileInfo.following }} following
+          </button>
+        </div>
+        <div>
+          <mat-icon class="mat-card-location" fontIcon="corporate_fare"></mat-icon>{{ this.profileInfo.organization }}
+          <mat-icon class="mat-card-location" fontIcon="location_on"></mat-icon>{{ this.profileInfo.location }}
+        </div>
+        <mat-divider class="mat-card-divider"></mat-divider>
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
   </mat-card>
+  <mat-divider></mat-divider>
   </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-card>
-      <mat-card-title>Edit Profile</mat-card-title>
-      <mat-card-content>
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Company (disabled)</mat-label>
-          <input matInput disabled value="Google">
-        </mat-form-field>
-        <table class="example-full-width" cellspacing="0"><tr>
-          <td><mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>First name</mat-label>
-            <input matInput>
-          </mat-form-field></td>
-          <td><mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Long Last Name That Will Be Truncated</mat-label>
-            <input matInput>
-          </mat-form-field></td>
-        </tr></table>
-      </mat-card-content>
-    </mat-card>
+  <mat-grid-tile [colspan]="4">
+    <mat-tab-group>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">menu_book</mat-icon>
+          Overview
+        </ng-template>
+        Content 1
+      </mat-tab>
+    
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">class</mat-icon>
+          Repositories
+        </ng-template>
+        Content 2
+      </mat-tab>
+    
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">folder_copy</mat-icon>
+          Projects
+        </ng-template>
+    
+        Content 3
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">star</mat-icon>
+          Stars
+        </ng-template>
+    
+        Content 3
+      </mat-tab>
+    </mat-tab-group>
   </mat-grid-tile>
-  <mat-grid-tile>3</mat-grid-tile>
-  <mat-grid-tile>4</mat-grid-tile>
 </mat-grid-list>
